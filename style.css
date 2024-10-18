@@ -1,0 +1,71 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #89fffd, #ef32d9);
+    font-family: 'Arial', sans-serif;
+}
+
+.clock {
+    width: 300px;
+    height: 300px;
+    border: 10px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    position: relative;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.clock-face {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.hand {
+    position: absolute;
+    width: 50%; /* Length of the hands */
+    height: 6px; /* Thickness of the hands */
+    background-color: white;
+    top: 50%;
+    left: 50%;
+    transform-origin: 0 50%; /* Rotate around the left edge */
+    transform: translate(-50%, -50%) rotate(90deg); /* Center the hands */
+    transition: all 0.05s;
+    transition-timing-function: cubic-bezier(0.4, 2.3, 0.3, 1);
+}
+
+.hour-hand {
+    height: 8px; /* Thickness of hour hand */
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.minute-hand {
+    height: 6px; /* Thickness of minute hand */
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.second-hand {
+    height: 2px; /* Thickness of second hand */
+    background-color: rgba(255, 0, 0, 0.9);
+}
+
+.clock-face::before {
+    content: '';
+    position: absolute;
+    width: 12px; /* Center dot size */
+    height: 12px; /* Center dot size */
+    background-color: white;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10; /* Ensure it is above the hands */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
